@@ -1,0 +1,100 @@
+# Ball and Brown (1968, 2019) {#bb1968}
+
+Read the four papers below (read enough of Kormendi and Lipe to answer the questions) and think about the discussion questions prior to class. I will expect students to be able to participate in discussion based on these papers and the questions below.
+
+## Ball and Brown (1968, "BB68")
+<!--- How does this paper compare with FFJR (Class 1)? Do you think this is better or worse in terms of writing? How would you contrast these papers in terms of style?
+-->
+-	Look at the references (pp. 177-178). What do you notice?
+-	What is the research question of the paper? Do you find the paper to be persuasive?
+
+## Ball and Brown (2019)
+We will use this paper in part to understand BB68.
+-	Compare Figure 1 with Figure 1 of BB68. What is common between the two figures? What is different?
+-	What does “less their average” mean in the title of Figure 1? What effect does this have on the plot? (Does it make this plot different from Figure 1 of BB68? Is information lost in the process?)
+-	On p.418, the authors say, “in this replication we address two issues with the BB68 significance tests.” Do you understand the points being made here? (You may not; we can discuss in class.)
+-	Also, on p.418, the authors say “the persistence of PEAD over time is evidence it does not constitute market inefficiency.” What do you make of this argument?
+-	Consider the paragraph beginning “an innovation in BB68 was to estimate …”. Go back to BB68 and examine the discussion of these points there. Was this interpretation offered there? Does it make sense to you?
+-	Consider column (4) of Table 2. Is an equivalent set of numbers reported in BB68? What does this mean intuitively in terms of an investment strategy (even one that is not feasible in practice)?
+-	Heading 6.3 is “Does ‘useful’ disprove ‘meaningless’?” Do you think that “not meaningless” implies “not useless”? Which questions (or facts) does BB68 address in these terms?
+
+## Kormendi and Lipe (1987)
+Use these questions to guide your reading of this paper (in other words, don’t go overboard in  reading this one). I assigned this paper to make some links between BB68 and some recent research.
+-	This paper studies the “earnings response coefficient” (ERC), which is the relation between unexpected earnings and returns.
+-	What factors does the paper identify as affecting ERCs?
+-	ERCs were a hot topic in the late 1980s, but then faded away a bit, but have recently made a bit of a comeback. For example, one paper “find[s] evidence that audit quality measured by increased propensity to issue going-concern opinion, increased propensity to miss analysts’ forecasts, as well as higher earnings-response coefficients increases with the level of non-audit services acquired from industry specialist auditors com- pared to nonspecialist auditors.” What link between the factors identified in Kormendi and Lipe (1987) and audit quality do you think this paper relies upon? Or, is something else required?
+
+## Bernard and Thomas (1989)
+I first read this paper many years ago and recall finding it very persuasive, so this one may reward a closer reading if you have time (now or later).
+
+-	A common feature of this paper and BB68 is that both were addressing issues with “conventional wisdom” at their respective times. How had conventional wisdom changed in the years between 1968 and 1989?
+-	Evaluate the introduction of this paper. How clear is the research question to you from reading this? How does this introduction compare with other papers we’ve read in the course? With other papers you have seen (e.g., for the MARS seminar).
+-	How persuasive do you find this paper to be? (Obviously answering this one requires reading the paper fairly closely.)
+
+## Coding exercises
+
+We will work through parts of BB1968 and BB2019 together using R. 
+I assume that you have R (and RStudio) installed, that you have a WRDS account, and that you are connected to the internet.
+
+We will a few R packages: `dplyr`, `dbplyr`, `RPostgres` and `DBI`; if you don't have these installed then use (say) `install.packages("dplyr")` in R to install them.
+
+First, let's load the required packages
+
+```{r packages}
+library(dplyr, warn.conflicts = FALSE)
+library(DBI)
+```
+
+
+Second, let's connect to the WRDS database. 
+In the code below, I have used *my* WRDS ID (`iangow`), but you should use yours.
+You may also need to add a line `Sys.setenv(PGPASSWORD="your_password")` as the third line of code.
+
+```{r db_connect}
+Sys.setenv(PGHOST="wrds-pgdata.wharton.upenn.edu", PGPORT=9737L)
+Sys.setenv(PGUSER="iangow", PGDATABASE = "wrds")
+
+pg <- dbConnect(RPostgres::Postgres())
+```
+
+Now that we have established a connection to the WRDS database, we need to get some data.
+Data sources on WRDS are organized into *libraries* according to their source (in PostgreSQL, these libraries are called *schemas*, but we will stick with the WRDS terminology for now). 
+To start with we will focus on Compustat data, which is found in the `comp` library.
+And, more specifically, we will focus on three tables: `company`, `funda`, and `fundq`.
+To access the data, we will create R "tables" that point to the data on the WRDS database by running the following code.
+
+```{r compustat}
+company <- tbl(pg, sql("SELECT * FROM comp.company"))
+funda <- tbl(pg, sql("SELECT * FROM comp.funda"))
+fundq <- tbl(pg, sql("SELECT * FROM comp.fundq"))
+```
+
+What have we done here?
+In the first line, we have created a variable `company` that "points to" the data returned by running the SQL query `SELECT * FROM comp.company` on the data source `pg` (which is the WRDS database).
+
+```{r glimpse_company}
+company
+```
+
+```{r comp}
+us_cos <-
+  company %>%
+  filter(loc == "USA")
+
+funda_mod <-
+  funda %>%
+  filter(indfmt == "INDL", datafmt == "STD",
+         consol == "C", popsrc == "D") %>%
+  select(gvkey, datadate, fyear, epspi, prcc_f)
+
+fundq_mod <-
+  fundq %>%
+  filter(indfmt == "INDL", datafmt == "STD",
+         consol == "C", popsrc == "D") %>%
+  filter(!is.na(rdq), fqtr == 4L) %>%
+  select(gvkey, datadate, rdq)
+
+ccmxpf_linktable <- tbl(pg, sql("SELECT * FROM crsp.ccmxpf_linktable"))
+dsf <- tbl(pg, sql("SELECT * FROM crsp.dsf"))
+dsi <- tbl(pg, sql("SELECT * FROM crsp.dsi"))
+```
