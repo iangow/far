@@ -5,8 +5,7 @@
 
 *These tell SAS the location of the data;
 
-libname mydata "s:\sasdata"; 	*shared data for the course;
-libname home "d:\users\dtayl\desktop\programs";	*your personal folder;
+libname mydata "~/far"; 	*shared data for the course;
 options ps=max ls=150 nocenter;
 
 proc sql;
