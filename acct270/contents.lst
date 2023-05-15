@@ -1,0 +1,189 @@
+                                 The SAS System                                1
+                                         Wednesday, January 13, 2021 03:58:00 PM
+
+                              The MEANS Procedure
+
+Variable   Label                 N           Mean        Std Dev        Minimum
+-------------------------------------------------------------------------------
+PERMNO     PERMNO                3       10107.00              0       10107.00
+DATE       Date of Observation   3       21188.00      1.0000000       21187.00
+RET        Returns               3      0.0086178      0.0038754      0.0046539
+-------------------------------------------------------------------------------
+
+                 Variable   Label                      Maximum
+                 ---------------------------------------------
+                 PERMNO     PERMNO                    10107.00
+                 DATE       Date of Observation       21189.00
+                 RET        Returns                  0.0123981
+                 ---------------------------------------------
+                                 The SAS System                                2
+                                         Wednesday, January 13, 2021 03:58:00 PM
+
+                             The CONTENTS Procedure
+
+Data Set Name        WORK.DSF2                    Observations          96285934
+Member Type          DATA                         Variables             20      
+Engine               V9                           Indexes               0       
+Created              01/13/2021 15:58:17          Observation Length    160     
+Last Modified        01/13/2021 15:58:17          Deleted Observations  0       
+Protection                                        Compressed            NO      
+Data Set Type                                     Sorted                NO      
+Label                                                                           
+Data Representation  SOLARIS_X86_64,                                            
+                     LINUX_X86_64, ALPHA_TRU64,                                 
+                     LINUX_IA64                                                 
+Encoding             utf-8  Unicode (UTF-8)                                     
+
+
+                       Engine/Host Dependent Information
+
+Data Set Page Size          65536                                               
+Number of Data Set Pages    235419                                              
+First Data Page             1                                                   
+Max Obs per Page            409                                                 
+Obs in First Data Page      380                                                 
+Number of Data Set Repairs  0                                                   
+Filename                    /sastemp/SAS_workCF8600002299_wrds-sas24-           
+                            w.wharton.private/dsf2.sas7bdat                     
+Release Created             9.0401M7                                            
+Host Created                Linux                                               
+Inode Number                71303174                                            
+Access Permission           rw-------                                           
+Owner Name                  iangow                                              
+File Size                   14GB                                                
+File Size (bytes)           15428485120                                         
+
+
+                  Alphabetic List of Variables and Attributes
+ 
+ # Variable Type Len Format    Informat Label
+
+14 ASK      Num    8 11.5      11.5     Ask                                    
+ 9 ASKHI    Num    8 12.5      12.5     Ask or High Price                      
+13 BID      Num    8 11.5      11.5     Bid                                    
+ 8 BIDLO    Num    8 12.5      12.5     Bid or Low Price                       
+16 CFACPR   Num    8                    Cumulative Factor to Adjust Prices     
+17 CFACSHR  Num    8                    Cumulative Factor to Adjust Shares/Vol 
+ 1 CUSIP    Char   8 8.        8.       CUSIP Header                           
+ 7 DATE     Num    8 YYMMDDN8.          Date of Observation                    
+ 5 HEXCD    Num    8 2.        2.       Exchange Code Header                   
+ 6 HSICCD   Num    8 8.        8.       Standard Industrial Classification Code
+ 4 ISSUNO   Num    8 8.        8.       Nasdaq Issue Number                    
+19 NUMTRD   Num    8 6.        6.       NASDAQ Number of Trades                
+18 OPENPRC  Num    8 12.5      12.5     Price Alternate                        
+ 3 PERMCO   Num    8 8.        8.       PERMCO                                 
+ 2 PERMNO   Num    8 8.        8.       PERMNO                                 
+10 PRC      Num    8 12.5      12.5     Price or Bid/Ask Average               
+12 RET      Num    8 11.6      11.6     Returns                                
+20 RETX     Num    8 11.6      11.6     Returns without Dividends              
+15 SHROUT   Num    8                    Shares Outstanding                     
+11 VOL      Num    8 10.       10.      Volume                                 
+                                 The SAS System                                3
+                                         Wednesday, January 13, 2021 03:58:00 PM
+
+                              The MEANS Procedure
+
+Variable   Label                 N           Mean        Std Dev        Minimum
+-------------------------------------------------------------------------------
+PERMNO     PERMNO                3       10107.00              0       10107.00
+DATE       Date of Observation   3       21188.00      1.0000000       21187.00
+RET        Returns               3      0.0086178      0.0038754      0.0046539
+-------------------------------------------------------------------------------
+
+                 Variable   Label                      Maximum
+                 ---------------------------------------------
+                 PERMNO     PERMNO                    10107.00
+                 DATE       Date of Observation       21189.00
+                 RET        Returns                  0.0123981
+                 ---------------------------------------------
+                                 The SAS System                                4
+                                         Wednesday, January 13, 2021 03:58:00 PM
+
+                             The CONTENTS Procedure
+
+Data Set Name        WORK.DSF3                    Observations          96285934
+Member Type          DATA                         Variables             20      
+Engine               V9                           Indexes               1       
+Created              01/13/2021 15:59:24          Observation Length    160     
+Last Modified        01/13/2021 16:00:47          Deleted Observations  0       
+Protection                                        Compressed            NO      
+Data Set Type                                     Sorted                NO      
+Label                                                                           
+Data Representation  SOLARIS_X86_64,                                            
+                     LINUX_X86_64, ALPHA_TRU64,                                 
+                     LINUX_IA64                                                 
+Encoding             utf-8  Unicode (UTF-8)                                     
+
+
+                       Engine/Host Dependent Information
+
+Data Set Page Size          65536                                               
+Number of Data Set Pages    235420                                              
+First Data Page             1                                                   
+Max Obs per Page            409                                                 
+Obs in First Data Page      380                                                 
+Index File Page Size        8192                                                
+Number of Index File Pages  158223                                              
+Number of Data Set Repairs  0                                                   
+Filename                    /sastemp/SAS_workCF8600002299_wrds-sas24-           
+                            w.wharton.private/dsf3.sas7bdat                     
+Release Created             9.0401M7                                            
+Host Created                Linux                                               
+Inode Number                71303176                                            
+Access Permission           rw-------                                           
+Owner Name                  iangow                                              
+File Size                   14GB                                                
+File Size (bytes)           15428550656                                         
+
+
+                  Alphabetic List of Variables and Attributes
+ 
+ # Variable Type Len Format    Informat Label
+
+14 ASK      Num    8 11.5      11.5     Ask                                    
+ 9 ASKHI    Num    8 12.5      12.5     Ask or High Price                      
+13 BID      Num    8 11.5      11.5     Bid                                    
+ 8 BIDLO    Num    8 12.5      12.5     Bid or Low Price                       
+16 CFACPR   Num    8                    Cumulative Factor to Adjust Prices     
+17 CFACSHR  Num    8                    Cumulative Factor to Adjust Shares/Vol 
+ 1 CUSIP    Char   8 8.        8.       CUSIP Header                           
+ 7 DATE     Num    8 YYMMDDN8.          Date of Observation                    
+ 5 HEXCD    Num    8 2.        2.       Exchange Code Header                   
+ 6 HSICCD   Num    8 8.        8.       Standard Industrial Classification Code
+ 4 ISSUNO   Num    8 8.        8.       Nasdaq Issue Number                    
+19 NUMTRD   Num    8 6.        6.       NASDAQ Number of Trades                
+18 OPENPRC  Num    8 12.5      12.5     Price Alternate                        
+ 3 PERMCO   Num    8 8.        8.       PERMCO                                 
+ 2 PERMNO   Num    8 8.        8.       PERMNO                                 
+10 PRC      Num    8 12.5      12.5     Price or Bid/Ask Average               
+12 RET      Num    8 11.6      11.6     Returns                                
+20 RETX     Num    8 11.6      11.6     Returns without Dividends              
+15 SHROUT   Num    8                    Shares Outstanding                     
+11 VOL      Num    8 10.       10.      Volume                                 
+
+
+                   Alphabetic List of Indexes and Attributes
+ 
+                                              # of
+                                            Unique
+                             #    Index     Values
+
+                             1    PERMNO     33584
+                                 The SAS System                                5
+                                         Wednesday, January 13, 2021 03:58:00 PM
+
+                              The MEANS Procedure
+
+Variable   Label                 N           Mean        Std Dev        Minimum
+-------------------------------------------------------------------------------
+PERMNO     PERMNO                3       10107.00              0       10107.00
+DATE       Date of Observation   3       21188.00      1.0000000       21187.00
+RET        Returns               3      0.0086178      0.0038754      0.0046539
+-------------------------------------------------------------------------------
+
+                 Variable   Label                      Maximum
+                 ---------------------------------------------
+                 PERMNO     PERMNO                    10107.00
+                 DATE       Date of Observation       21189.00
+                 RET        Returns                  0.0123981
+                 ---------------------------------------------

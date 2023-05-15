@@ -4,8 +4,12 @@
 *******************************************************;
 
 *These tell SAS the location of the data;
+*shared data for the course;
+LIBNAME mydata postgres server='iangow.me'
+	port=5434 database=crsp user=far_access password='test_20210111'
+	schema=far client_encoding='utf-8';
 
-libname mydata "~/far"; 	*shared data for the course;
+libname home "~/far";	*your personal folder;
 options ps=max ls=150 nocenter;
 
 proc sql;
